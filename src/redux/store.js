@@ -1,6 +1,12 @@
 import { devToolsEnhancer } from "@redux-devtools/extension";
 import { createStore } from "redux";
 
+export const deposit = (value) => {
+  return {
+    type: "balance/deposit",
+    payload: value,
+  };
+};
 const initialState = {
   balance: {
     value: 0,
@@ -8,6 +14,8 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
+  console.log(action);
+
   return state;
 };
 
