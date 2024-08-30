@@ -14,9 +14,16 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-  console.log(action);
-
-  return state;
+  switch (action.type) {
+    case "balance/deposit":
+      return {
+        balance: {
+          value: state.balance.value + action.payload,
+        },
+      };
+    default:
+      return state;
+  }
 };
 
 export const store = createStore(rootReducer, devToolsEnhancer());
